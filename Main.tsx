@@ -42,7 +42,6 @@ class Main extends React.Component<MainProps, MainState> {
       </View>
     )
   }
-
 }
 
 export default Main;

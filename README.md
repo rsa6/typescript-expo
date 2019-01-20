@@ -1,3 +1,5 @@
+# typescript create-react-native-app with react-navigation3
+
 # 순서 
 
 - yarn add -D react-native-typescript-transformer

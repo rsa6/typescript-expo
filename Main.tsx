@@ -34,8 +34,8 @@ class Main extends React.Component<MainProps, MainState> {
         <AppContext.Consumer>
           {(store: AppContextInterface) => 
             <View>
-              <Text>{store.data}</Text>
-              <Text>{store.age}</Text>
+              <Text style={styles.textH2}>{store.data}</Text>
+              <Text style={styles.textH2}>{store.age}</Text>
             </View>
           }
         </AppContext.Consumer>

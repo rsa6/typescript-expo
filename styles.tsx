@@ -9,6 +9,9 @@ const styles = StyleSheet.create({
   },
   textH1: {
     fontSize: 30
+  },
+  textH2: {
+    fontSize: 22
   }
 });
 

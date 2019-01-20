@@ -1,32 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, Button } from 'react-native';
+import styles from './styles';
+import { AppContextInterface, AppContext } from './Store';
+import Main from './Main';
 
-interface AppState {
-  title: string;
-}
-
-export default class App extends React.Component<object, AppState> {
+class App extends React.Component<object, AppContextInterface> {
   constructor(props: object) {
     super(props);
     this.state = {
-      title: '?'
+      data: 'Context data',
+      age: 18
     }
   }
 
   public render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      <AppContext.Provider value={this.state}>
+        <Main />
+      </AppContext.Provider>
     );
   }
+
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;

@@ -3,25 +3,28 @@ import { Text, View, Button } from 'react-native';
 import styles from './styles';
 import { AppContext, AppContextInterface } from './Store';
 
+
+interface MainProps {
+  context: any
+}
+
 interface MainState {
   title: string;
 }
 
-class Main extends React.Component<object, MainState> {
-  constructor(props: object) {
+class Main extends React.Component<MainProps, MainState> {
+  constructor(props: MainProps) {
     super(props);
     this.state = {
       title: 'Title from Main state'
     }
   }
 
-  static contextType = AppContext;
-
+  // static contextType = AppContext; // this code only can use (react 16.6.0 >=)
+  // console.log(this.context);
+  
   public componentDidMount () {
-    setTimeout(() => {
-      console.log(this.context);
-
-    }, 2000)
+    this.props.context(); 
   }
 
   public render() {

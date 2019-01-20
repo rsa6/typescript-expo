@@ -9,14 +9,17 @@ class App extends React.Component<object, AppContextInterface> {
     super(props);
     this.state = {
       data: 'Context data',
-      age: 18
+      age: 18,
+      testFunction: this._testFunction
     }
   }
+
+  private _testFunction = (): void => console.log('this is _testFunction');
 
   public render() {
     return (
       <AppContext.Provider value={this.state}>
-        <Main />
+        <Main context={this.state.testFunction} />
       </AppContext.Provider>
     );
   }

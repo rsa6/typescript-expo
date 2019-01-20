@@ -20,3 +20,5 @@
 - tsc --init
 - 주석 제거 후 수정 -> "jsx": "react-native"
 - app.js -> app.tsx
+
+- 현재 expo version 은 static contextType = AppContext 을 지원하지 않는다.

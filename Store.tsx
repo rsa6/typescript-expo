@@ -3,6 +3,7 @@ import * as React from 'react';
 export interface AppContextInterface {
   data: string;
   age: number;
+  testFunction: any;
 }
 
 const ctxt: any = React.createContext<AppContextInterface | null>(null);

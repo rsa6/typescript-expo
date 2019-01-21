@@ -27,11 +27,12 @@ class App extends React.Component<object, AppContextInterface> {
 
 }
 
-// export default App;
+export default App;
 
-const AppNavigator: any = createStackNavigator({
-  Home: {
-    screen: App
-  }
-});
-export default createAppContainer(AppNavigator);
+// const AppNavigator: any = createStackNavigator({
+//   Home: {
+//     screen: App
+//   }
+// });
+
+// export default createAppContainer(AppNavigator);

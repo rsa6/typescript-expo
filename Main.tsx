@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, ActivityIndicator } from 'react-native';
 import styles from './styles';
 import { AppContext, AppContextInterface } from './Store';
 
@@ -10,13 +10,15 @@ interface MainProps {
 
 interface MainState {
   title: string;
+  loadingTime: number;
 }
 
 class Main extends React.Component<MainProps, MainState> {
   constructor(props: MainProps) {
     super(props);
     this.state = {
-      title: 'Title from Main state'
+      title: 'this is loading...', // 'Title from Main state'
+      loadingTime: 4,
     }
   }
 
@@ -24,24 +26,48 @@ class Main extends React.Component<MainProps, MainState> {
   // console.log(this.context);
   
   public componentDidMount () {
-    this.props.context(); 
+    this.props.context();
+    setInterval(() => {
+      this.setState({ loadingTime: this.state.loadingTime -1});
+    }, 1000)
+  }
+
+  private mainComponent = () => {
+    return (
+      <View>
+        <Text style={styles.textH1}>{this.state.title}</Text>
+        <ActivityIndicator size="large" color="#fff" />
+        <Text style={styles.textH1}>{this.state.loadingTime}</Text>
+      </View>
+    )
+  }
+
+  private mainComponent2 = () => {
+    return (
+      <View>
+        <Text style={styles.textH1}>로딩 끝났다</Text>
+      </View>
+    )
   }
 
   public render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.textH1}>{this.state.title}</Text>
-        <AppContext.Consumer>
-          {(store: AppContextInterface) => 
-            <View>
-              <Text style={styles.textH2}>{store.data}</Text>
-              <Text style={styles.textH2}>{store.age}</Text>
-            </View>
-          }
-        </AppContext.Consumer>
+        {this.state.loadingTime > 0 ? <this.mainComponent /> : <this.mainComponent2 />}        
       </View>
     )
   }
 }
 
+
+
 export default Main;
+
+{/* <AppContext.Consumer>
+  {(store: AppContextInterface) => 
+    <View>
+      <Text style={styles.textH2}>{store.data}</Text>
+      <Text style={styles.textH2}>{store.age}</Text>
+    </View>
+  }
+</AppContext.Consumer> */}

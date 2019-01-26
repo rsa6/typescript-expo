@@ -1,11 +1,9 @@
 import React from 'react';
-<<<<<<< HEAD
-import { Text, View, Button, ActivityIndicator } from 'react-native';
-=======
-import { Text, View, TouchableHighlight } from 'react-native';
->>>>>>> a4f889707ac1c5fbb881c09372e79d4e2119e81d
+import { Text, View, TouchableHighlight, ActivityIndicator } from 'react-native';
 import styles from './styles';
 import { AppContext, AppContextInterface } from './Store';
+
+import MultiTap from './MultiTab';
 
 interface MainProps {
   context: any
@@ -35,7 +33,7 @@ class Main extends React.Component<MainProps, MainState> {
     }, 1000)
   }
 
-  private mainComponent = () => {
+  private loading = () => {
     return (
       <View>
         <Text style={styles.textH1}>{this.state.title}</Text>
@@ -45,7 +43,7 @@ class Main extends React.Component<MainProps, MainState> {
     )
   }
 
-  private mainComponent2 = () => {
+  private loadingComplite = () => {
     return (
       <View>
         <Text style={styles.textH1}>로딩 끝났다</Text>
@@ -67,54 +65,14 @@ class Main extends React.Component<MainProps, MainState> {
         </AppContext.Consumer>
 
         <MultiTap onPress={() => alert('double tap!')} numberOfTouches={2}>
-          {/* <TouchableHighlight onPress={() => alert('box tapped!')}> */}
+          <TouchableHighlight onPress={() => alert('box tapped!')}>
             <View style={styles.box} />
-          {/* </TouchableHighlight> */}
+          </TouchableHighlight>
         </MultiTap>
       </View>
     )
   }
 }
 
-interface MultiTapProps {
-  numberOfTouches: number;
-  onPress: any;
-}
-
-class MultiTap extends React.Component<MultiTapProps, object> {
-  static defaultProps = {
-    onPress: () => null,
-    numberOfTouches: 2,
-  };
-
-  onMoveShouldSetResponder = (event: any) => {
-    console.log(event.nativeEvent.pageX);
-    return true;
-  }
-
-  onStartShouldSetResponder = (event: any) => {
-    if (event.nativeEvent.touches.length === this.props.numberOfTouches) {
-      return true;
-    }
-    return false;
-  };
-
-  onResponderRelease = (event: any) => {
-    this.props.onPress();
-    console.log(event.nativeEvent.locationX)
-  };
-
-  render() {
-    return (
-      <View
-        onMoveShouldSetResponder={this.onMoveShouldSetResponder}
-        onStartShouldSetResponder={this.onStartShouldSetResponder}
-        onResponderRelease={this.onResponderRelease}
-      >
-        {this.props.children}
-      </View>
-    );
-  }
-}
 
 export default Main;

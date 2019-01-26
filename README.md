@@ -1,10 +1,9 @@
-# typescript create-react-native-app with react-navigation3
+## typescript create-react-native-app with react-navigation3
 
-# 순서 
+## 순서 
 
 - yarn add -D react-native-typescript-transformer
 - yarn add -D @types/react @types/react-native
-
 - app.json 에 추가
 
 ```
@@ -22,4 +21,10 @@
 - app.js -> app.tsx
 
 - 현재 expo version 은 static contextType = AppContext 을 지원하지 않는다.
-- loading 추가
+
+## 기능 
+- context and pass funtion to children without context (props)
+- react-navigation3
+- loading
+- gesture multi touch 
+- 

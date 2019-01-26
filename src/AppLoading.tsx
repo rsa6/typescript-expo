@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, Text, View } from 'react-native';
 import { Asset, AppLoading } from 'expo';
 
-export default class App extends React.Component {
+export default class App extends React.Component<object, object> {
   state = {
     isReady: false,
   };

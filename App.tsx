@@ -1,9 +1,8 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import styles from './styles';
 import { AppContextInterface, AppContext } from './Store';
-import Main from './Main';
+import Main from './src/Main';
 
 class App extends React.Component<object, AppContextInterface> {
   constructor(props: object) {

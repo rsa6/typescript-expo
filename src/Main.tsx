@@ -1,9 +1,8 @@
 import React from 'react';
 import { Text, View, TouchableHighlight, ActivityIndicator } from 'react-native';
-import styles from './styles';
-import { AppContext, AppContextInterface } from './Store';
-
-import MultiTap from './MultiTab';
+import styles from '../styles';
+import { AppContext, AppContextInterface } from '../Store';
+import TouchView from './TouchView';
 
 interface MainProps {
   context: any
@@ -63,16 +62,10 @@ class Main extends React.Component<MainProps, MainState> {
             </View>
           }
         </AppContext.Consumer>
-
-        <MultiTap onPress={() => alert('double tap!')} numberOfTouches={2}>
-          <TouchableHighlight onPress={() => alert('box tapped!')}>
-            <View style={styles.box} />
-          </TouchableHighlight>
-        </MultiTap>
+        
       </View>
     )
   }
 }
-
 
 export default Main;

@@ -1,3 +1,6 @@
+import React from 'react';
+import { Text, View, TouchableHighlight, ActivityIndicator } from 'react-native';
+import styles from '../styles';
 
 interface MultiTapProps {
   numberOfTouches: number;
@@ -40,3 +43,17 @@ class MultiTap extends React.Component<MultiTapProps, object> {
     );
   }
 }
+
+class TouchView extends React.Component<object, object> {
+  public render() {
+    return(
+      <MultiTap onPress={() => alert('double tap!')} numberOfTouches={2}>
+        <TouchableHighlight onPress={() => alert('box tapped!')}>
+          <View style={styles.box} />
+        </TouchableHighlight>
+      </MultiTap>
+    )
+  }
+}
+
+export default TouchView;

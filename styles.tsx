@@ -7,13 +7,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  inContainer: {
+    alignItems: 'center',
+  },
   textH1: {
     fontSize: 30,
-    color: '#fff'
+    color: '#fff',
   },
   textH2: {
     fontSize: 22,
-    color: '#fff'
+    color: '#fff',
+  },
+  box: {
+    backgroundColor: 'red',
+    width: 200,
+    height: 200,
+    borderRadius: 30
   }
 });
 

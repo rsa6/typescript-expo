@@ -3,39 +3,33 @@ import { Text, View, TouchableHighlight, ActivityIndicator } from 'react-native'
 import styles from '../styles';
 import { AppContext, AppContextInterface } from '../Store';
 import TouchView from './TouchView';
+import MapComponent from './MapComponent';
 
 interface MainProps {
   context: any
 }
 
 interface MainState {
-  title: string;
   loadingTime: number;
 }
 
 class Main extends React.Component<MainProps, MainState> {
-  constructor(props: MainProps) {
-    super(props);
-    this.state = {
-      title: 'this is loading...', // 'Title from Main state'
-      loadingTime: 4,
-    }
-  }
-
   // static contextType = AppContext; // this code only can use (react 16.6.0 >=)
   // console.log(this.context);
-  
+  public state = {
+    loadingTime: 10,
+  }
+
   public componentDidMount () {
     this.props.context();
     setInterval(() => {
-      this.setState({ loadingTime: this.state.loadingTime -1});
+      this.setState({loadingTime: this.state.loadingTime -1});
     }, 1000)
   }
 
   private loading = () => {
     return (
       <View>
-        <Text style={styles.textH1}>{this.state.title}</Text>
         <ActivityIndicator size="large" color="#fff" />
         <Text style={styles.textH1}>{this.state.loadingTime}</Text>
       </View>
@@ -52,6 +46,32 @@ class Main extends React.Component<MainProps, MainState> {
 
   public render() {
     return (
+      // <View style={styles.container}>
+      //   <Text style={styles.textH1}>{this.state.loadingTime} 1</Text>
+      // </View>
+      // <MainView />
+      <MapComponent />
+    )
+  }
+}
+
+
+interface MainViewState {
+  title: string;
+  loadingTime: number;
+}
+
+class MainView extends React.Component<object, MainViewState> {
+  constructor(props: MainProps) {
+    super(props);
+    this.state = {
+      title: 'this is loading...', // 'Title from Main state'
+      loadingTime: 4,
+    }
+  }
+
+  public render() {
+    return(
       <View style={styles.container}>
         <Text style={styles.textH1}>{this.state.title}</Text>
         <AppContext.Consumer>
@@ -62,7 +82,6 @@ class Main extends React.Component<MainProps, MainState> {
             </View>
           }
         </AppContext.Consumer>
-        
       </View>
     )
   }

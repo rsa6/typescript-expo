@@ -17,14 +17,15 @@
 ```
 
 - tsc --init
-- 주석 제거 후 수정 -> "jsx": "react-native"
+- tsconfig -> "jsx": "react-native" (주석 제거 후 수정)
 - app.js -> app.tsx
+- tsconfig -> "target": "es6"  
 
-- 현재 expo version 은 static contextType = AppContext 을 지원하지 않는다.
+## 현재 expo version 은 static contextType = AppContext 을 지원하지 않는다.
 
 ## 기능 
 - context and pass funtion to children without context (props)
 - react-navigation3
 - loading
 - gesture multi touch 
-- 
+- mapview with location (not googlemap)

@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     borderRadius: 30
-  }
+  },
 });
 
 export default styles;

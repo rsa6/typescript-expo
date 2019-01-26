@@ -37,5 +37,5 @@ export default class App extends React.Component<object, object> {
     });
     return Promise.all(cacheImages)
 
-  }
+  }1
 }

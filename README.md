@@ -22,3 +22,4 @@
 - app.js -> app.tsx
 
 - 현재 expo version 은 static contextType = AppContext 을 지원하지 않는다.
+- loading 추가
